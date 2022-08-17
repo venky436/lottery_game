@@ -183,6 +183,8 @@ position: relative;
     height: 20px;
     background-color: green;
     color: white;
+    display: none;
+
 
 }
 .small-bet{
@@ -196,6 +198,8 @@ position: relative;
     height: 20px;
     background-color: green;
     color: white;
+    display: none;
+
 }
 
 
@@ -228,6 +232,33 @@ position: relative;
     background-color: antiquewhite;
 }
 
+
+.even-bet{
+      position: absolute;
+    top: 5%;
+    left: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 20px;
+    background-color: green;
+    color: white;
+    display: none;
+}
+.odd-bet{
+      position: absolute;
+    top: 5%;
+    left: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 20px;
+    background-color: green;
+    color: white;
+    display: none;
+}
 
 
 /* BET BOX */
