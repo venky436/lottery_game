@@ -128,16 +128,21 @@ form.addEventListener("submit", (e) => {
 
   total_money -= Number(bet_input.value);
   total_money_tag.textContent = total_money;
-  // big_bet.textContent= "";
-
+  
   if (currentBtn == "big") {
     big += Number(bet_input.value);
     big_bet.textContent = big;
     big_bet.style.display = "block";
     bet_box.style.display = "none";
     bet_input.value = "";
+     small_btn.style.opacity = "0.4";
+     small_btn.childNodes[3].disabled = true;
   }
   if (currentBtn == "small") {
+      big_btn.style.opacity = "0.4";
+      big_btn.childNodes[3].disabled = true
+
+
     small += Number(bet_input.value);
     small_bet.textContent = small;
     small_bet.style.display = "block";
@@ -157,6 +162,9 @@ form.addEventListener("submit", (e) => {
     even_bet.style.display = 'block'
     bet_box.style.display = 'none'
     bet_input.value = "";
+
+    odd_btn.style.opacity = "0.4";
+    odd_btn.childNodes[3].disabled = true;
   }
   if(currentBtn == 'odd'){
      odd += Number(bet_input.value);
@@ -164,6 +172,10 @@ form.addEventListener("submit", (e) => {
      odd_bet.style.display = "block";
      bet_box.style.display = "none";
      bet_input.value = "";
+
+
+     even_btn.style.opacity = "0.4";
+     even_btn.childNodes[3].disabled = true;
 
   }
   // }
@@ -237,9 +249,17 @@ function Main() {
       big_bet.textContent = "";
       small_bet.textContent = "";
 
+
+
       big_bet.style.display = "none";
       small_bet.style.display = "none";
       triple_bet.style.display = "none";
+
+      even_bet.style.display = "none";
+      odd_bet.style.display = "none";
+
+     
+
 
       big_btn.style.opacity = "1";
       small_btn.style.opacity = "1";
@@ -270,14 +290,24 @@ function Main() {
         },1000)
 
       }
-      if (one + two + three > 10) {
+      if (one + two + three > 10 && (one !== two && two !== three && three !== one)) {
         total_money += big * 2;
         total_money_tag.textContent = total_money;
       }
-      if (one == two && two == three && three == one) {
-        total_money += triple * 30;
-        total_money_tag.textContent = total_money;
+      if (
+        one + two + three < 10 &&
+        one !== two &&
+        two !== three &&
+        three !== one
+      ){
+        total_money += small*2
+        total_money_tag.textContent = total_money
+
       }
+        if (one == two && two == three && three == one) {
+          total_money += triple * 30;
+          total_money_tag.textContent = total_money;
+        }
       if ((one + two + three) % 2 === 0) {
         total_money += even * 2;
         total_money_tag.textContent = total_money;
@@ -289,6 +319,9 @@ function Main() {
       big = 0;
       small = 0;
       triple = 0;
+      even = 0
+      odd = 0
+       
     }, 4000);
   }, 14000);
 }
